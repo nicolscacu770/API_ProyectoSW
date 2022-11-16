@@ -20,7 +20,7 @@ const find = async (req, res) => {
         const [rows] = await pool.query(query);
         res.send({ rows });
     }catch (error) {
-        return res.status(500).json({message: 'Algo ha salido mal. ruta: estudiatesServices/find'});
+        return res.status(500).json({message: 'Algo ha salido mal. ruta: estudiatesServices/find', errorx: error});
     }
     
 }
@@ -37,7 +37,7 @@ const findOne = async (req, res) => {
             res.json(rows);
         }
     }catch (error) {
-        return res.status(500).json({message: 'Algo ha salido mal. ruta: estudiatesServices/findOne'});
+        return res.status(500).json({message: 'Algo ha salido mal. ruta: estudiatesServices/findOne', errorx: error});
     }
     
 }

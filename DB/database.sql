@@ -2,6 +2,16 @@ CREATE DATABASE IF NOT EXIST proyectoSW;
 
 USE proyectoSW;
 
+CREATE TABLE `usuarios` (
+	`codigo` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
+	`correo` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`password` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`tipo` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_0900_ai_ci'
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+;
+
 CREATE TABLE IF NOT EXISTS `estudiantes` (
   `codigo` varchar(10) NOT NULL DEFAULT '',
   `correo` varchar(50) NOT NULL DEFAULT '',
@@ -13,6 +23,21 @@ CREATE TABLE IF NOT EXISTS `estudiantes` (
   `semestre` int unsigned DEFAULT '0',
   PRIMARY KEY (`codigo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE IF NOT EXISTS`docentes` (
+	`codigo` INT(10) NOT NULL,
+	`correo` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
+	`nombre` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
+	`apellido` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
+	`telefono` VARCHAR(50) NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
+	`password` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
+	`carrera` VARCHAR(50) NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
+	PRIMARY KEY (`codigo`) 
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+;
 
 CREATE TABLE IF NOT EXISTS `encuentros` (
 	`id` INT NOT NULL AUTO_INCREMENT,
@@ -51,19 +76,6 @@ COLLATE='utf8mb4_0900_ai_ci'
 ENGINE=InnoDB
 ;
 
-CREATE TABLE IF NOT EXISTS`docentes` (
-	`codigo` INT(10) NOT NULL,
-	`correo` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
-	`nombre` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
-	`apellido` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
-	`telefono` VARCHAR(50) NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
-	`password` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
-	`carrera` VARCHAR(50) NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
-	PRIMARY KEY (`codigo`) USING BTREE
-)
-COLLATE='utf8mb4_0900_ai_ci'
-ENGINE=InnoDB
-;
 
 CREATE TABLE IF NOT EXISTS`carreras` (
 	`codigo` INT(10) NOT NULL,
