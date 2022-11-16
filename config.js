@@ -12,7 +12,7 @@ const DB_DATABASE = process.env.DB_DATABASE || 3306
 module.exports = {
     PORT,
     DB_USER,
-    DP_PASSWORD,
+    DB_PASSWORD,
     DB_HOST,
     DB_PORT,
     DB_DATABASE
